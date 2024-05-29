@@ -1,0 +1,22 @@
+{
+  "name": "echoblog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "npm run dev --prefix echoblog-client",
+    "api-gateway": "npm run dev --prefix api-gateway",
+    "chat": "npm start --prefix echoblog-backend/Chat-service",
+    "group": "npm start --prefix echoblog-backend/Group-service",
+    "post": "npm start --prefix echoblog-backend/Post-service",
+    "user": "npm start --prefix echoblog-backend/User-service",
+    "auth": "npm start --prefix echoblog-backend/Auth-service",
+    "dev": "concurrently \"npm run client\" \"npm run api-gateway\" \"npm run auth\" \"npm run user\" \"npm run post\" \"npm run group\" \"npm run chat\""
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

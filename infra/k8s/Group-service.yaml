@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: group-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: group
+  template:
+    metadata:
+      labels:
+        app: group
+    spec:
+      containers:
+      - name: group-container
+        image: adarshbinomon/echoblog-backend-group-service
+
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: group-service
+spec:
+  selector:
+    app: group
+  ports: 
+    - name: group
+      protocol: TCP
+      port: 4003
+      targetPort: 4003
